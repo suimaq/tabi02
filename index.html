@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>広島ゆったり旅行プラン</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light blue-gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .slide-container {
+            background-color: #ffffff;
+            border-radius: 1.5rem; /* Rounded corners for the main container */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+            width: 100%;
+            max-width: 900px; /* Max width for desktop */
+            display: flex;
+            flex-direction: column;
+            min-height: 600px; /* Minimum height for better presentation */
+        }
+        .slide {
+            display: none; /* Hide all slides by default */
+            flex-grow: 1;
+            padding: 2rem;
+            text-align: center;
+            animation: fadeIn 0.5s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .slide.active {
+            display: flex; /* Show active slide */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .slide-title {
+            font-size: 2.5rem; /* Larger title for impact */
+            font-weight: 700;
+            color: #2c5282; /* Darker blue for titles */
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        .slide-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #4a5568; /* Gray for subtitles */
+            margin-bottom: 1rem;
+        }
+        .slide-content {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #4a5568;
+            text-align: left;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .slide-content ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            padding-left: 0;
+        }
+        .slide-content li {
+            margin-bottom: 0.5rem;
+        }
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            padding: 1.5rem;
+            border-top: 1px solid #edf2f7; /* Light border */
+        }
+        .nav-button {
+            background-color: #4299e1; /* Blue button */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem; /* More rounded buttons */
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .nav-button:hover {
+            background-color: #3182ce; /* Darker blue on hover */
+            transform: translateY(-2px);
+        }
+        .nav-button:disabled {
+            background-color: #cbd5e0; /* Gray when disabled */
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+        .slide-counter {
+            font-size: 1rem;
+            color: #718096; /* Gray text for counter */
+            align-self: center;
+            margin: 0 1rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .slide-title {
+                font-size: 2rem;
+            }
+            .slide-subtitle {
+                font-size: 1.25rem;
+            }
+            .slide-content {
+                font-size: 1rem;
+            }
+            .slide-container {
+                min-height: 500px;
+            }
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            .nav-button {
+                width: 100%;
+                text-align: center;
+            }
+            .slide-counter {
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide-container">
+        <!-- Slide 1: Title Slide -->
+        <div class="slide active">
+            <h1 class="slide-title">広島ゆったり旅行プラン</h1>
+            <p class="slide-subtitle">2025年8月10日(土)〜11日(日) | 東京発 8名様</p>
+            <p class="slide-content">
+                歴史と平和、そして美味しい広島を満喫する、8名様で気兼ねなく過ごすゆったり旅。
+            </p>
+            <p class="slide-content mt-4">
+                **移動手段:** 新幹線 (グリーン車または指定席2席利用)、広島市内は貸切タクシーまたは公共交通機関<br>
+                **宿泊:** 広島市内のホテル (広めの部屋、またはコネクティングルームなどを検討)
+            </p>
+        </div>
+
+        <!-- Slide 2: 1日目 午前 -->
+        <div class="slide">
+            <h2 class="slide-title">1日目: 8月10日(土) 平和と歴史に触れる一日</h2>
+            <h3 class="slide-subtitle">午前: 東京出発〜広島へ</h3>
+            <div class="slide-content">
+                <ul>
+                    <li>**8:00〜9:00頃:** 東京駅集合、新幹線で広島へ出発 (約4時間)</li>
+                    <li>8名様なので、事前に座席指定 (通路を挟んで隣り合う席を複数確保すると会話もしやすいです)。</li>
+                    <li>お弁当や飲み物などを持ち込み、車内でゆっくり過ごしましょう。</li>
+                    <li>**12:00〜13:00頃:** 広島駅到着。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 3: 1日目 昼食・午後 -->
+        <div class="slide">
+            <h2 class="slide-title">1日目: 8月10日(土) 平和と歴史に触れる一日</h2>
+            <h3 class="slide-subtitle">昼食・午後: 平和公園・原爆ドーム散策</h3>
+            <div class="slide-content">
+                <ul>
+                    <li>**昼食:** 広島駅周辺のお好み焼き店で、広島風お好み焼きを堪能 (例: 麗ちゃん、みっちゃん総本店など)。</li>
+                    <li>**14:00〜16:30:** 貸切タクシーまたは路面電車で平和記念公園へ移動。</li>
+                    <li>**平和記念資料館見学:** 1時間半～2時間程度かけて、じっくり見学。</li>
+                    <li>**原爆ドーム・平和記念碑など:** 公園内を散策し、静かに平和について考えます。</li>
+                    <li>**ポイント:** 真夏なので、水分補給、帽子や日傘などの日除け対策をしっかりと。資料館は冷房が効いているので、上着があると安心です。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 4: 1日目 夕食 -->
+        <div class="slide">
+            <h2 class="slide-title">1日目: 8月10日(土) 平和と歴史に触れる一日</h2>
+            <h3 class="slide-subtitle">夕食: 広島市内で会食</h3>
+            <div class="slide-content">
+                <ul>
+                    <li>**18:30〜20:30:** 広島市内の繁華街 (流川・八丁堀エリアなど) へ移動し、地元の食材を活かした料理を堪能。</li>
+                    <li>**候補:** 瀬戸内の魚介が楽しめる居酒屋、広島牛ステーキなど肉料理の店、鉄板焼きなど。</li>
+                    <li>個室のある店を選ぶと8名様でもゆったり過ごせます。事前に予約がおすすめです。</li>
+                    <li>**21:00頃:** ホテルへ戻り、各自ゆっくりお休みください。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 5: 2日目 午前 -->
+        <div class="slide">
+            <h2 class="slide-title">2日目: 8月11日(日) 宮島観光と広島グルメ</h2>
+            <h3 class="slide-subtitle">午前: 世界遺産 宮島観光</h3>
+            <div class="slide-content">
+                <ul>
+                    <li>**8:30頃:** ホテル出発。</li>
+                    <li>**9:00〜9:30頃:** 広島駅からJRで宮島口駅へ (約25分)。</li>
+                    <li>**9:30〜10:00頃:** 宮島口桟橋からフェリーで宮島へ (約10分)。フェリーから見える大鳥居は絶景です。</li>
+                    <li>**10:00〜13:00頃:** 宮島散策。</li>
+                    <li>**厳島神社:** 世界遺産に登録されている美しい社殿を見学。</li>
+                    <li>**五重塔・千畳閣:** 厳島神社周辺の歴史的建造物を見学。</li>
+                    <li>**表参道商店街:** 揚げもみじや牡蠣など、食べ歩きを楽しみましょう。</li>
+                    <li>**ポイント:** 真夏は特に日差しが強いので、熱中症対策を忘れずに。鹿には餌を与えないように。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 6: 2日目 昼食・午後 -->
+        <div class="slide">
+            <h2 class="slide-title">2日目: 8月11日(日) 宮島観光と広島グルメ</h2>
+            <h3 class="slide-subtitle">昼食・午後: お土産探し、または自由行動</h3>
+            <div class="slide-content">
+                <ul>
+                    <li>**昼食:** 宮島島内で、牡蠣料理や穴子めしなど、瀬戸内の海の幸を堪能。</li>
+                    <li>**14:30〜15:00頃:** フェリーで宮島口へ戻り、JRで広島駅へ。</li>
+                    <li>**15:30〜16:30頃:** 広島駅周辺でお土産探し。「ekie（エキエ）」やASSE（アッセ）など。</li>
+                    <li>**または、ご希望に応じて自由行動:** 広島城や縮景園、カフェで休憩など。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 7: 2日目 夕食・帰路 -->
+        <div class="slide">
+            <h2 class="slide-title">2日目: 8月11日(日) 宮島観光と広島グルメ</h2>
+            <h3 class="slide-subtitle">夕食・帰路: 東京へ</h3>
+            <div class="slide-content">
+                <ul>
+                    <li>**17:00〜17:30頃:** 広島駅集合。新幹線に乗車。</li>
+                    <li>出発時間によっては、駅弁を購入し新幹線内で食べるのも良いでしょう。</li>
+                    <li>**17:30〜18:30頃:** 新幹線で東京へ出発。</li>
+                    <li>**21:30〜22:30頃:** 東京駅到着、解散。お疲れ様でした。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 8: ゆったり旅行のためのポイント -->
+        <div class="slide">
+            <h2 class="slide-title">ゆったり旅行のためのポイント</h2>
+            <div class="slide-content">
+                <ul>
+                    <li>**移動は余裕を持って:** 8名様での移動なので、貸切タクシーの利用も検討するとスムーズです。</li>
+                    <li>**事前の予約:** 新幹線、ホテル、夕食のレストランは早めに予約することをおすすめします。</li>
+                    <li>**体調管理:** 真夏の旅行ですので、熱中症対策 (水分補給、休憩、日傘・帽子など) をしっかり行いましょう。</li>
+                    <li>**グループのニーズに合わせる:** 興味のある場所や食べたいものがあれば、適宜調整してください。</li>
+                    <li>**荷物:** ホテルに荷物を預けるなどして、身軽に観光できるようにすると疲れにくいです。</li>
+                    <li>**通信手段:** グループLINEなどを作り、集合場所や時間を共有すると便利です。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="navigation-buttons">
+            <button id="prevBtn" class="nav-button">前のスライド</button>
+            <span id="slideCounter" class="slide-counter">1 / 8</span>
+            <button id="nextBtn" class="nav-button">次のスライド</button>
+        </div>
+    </
